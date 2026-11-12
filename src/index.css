@@ -1,1 +1,5 @@
-/* Intentionally empty. Your styling approach goes here (or somewhere else, depending on the approach). */
+/*
+ * Bootstrap is imported in src/index.tsx.
+ * This is the one place for custom values: override Bootstrap's `--bs-*`
+ * variables here instead of inventing colors or spacing in components.
+ */

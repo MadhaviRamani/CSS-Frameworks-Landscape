@@ -19,13 +19,13 @@ A reading list built with React 19, TypeScript and Vite. No backend, the data is
 
 ## Styling
 
-<!-- TODO: Replace this section with the rules for the approach you chose. -->
+This branch (`variant-bootstrap`) uses **Bootstrap 5.3** with **react-bootstrap**.
 
-Choose exactly one styling approach per branch and write it down here **before** you build. Example for Tailwind:
-
-- Use Tailwind CSS v4 only. No `tailwind.config.js`, configure with `@theme` in `src/index.css`.
-- No inline `style` props, no other CSS libraries.
-- Reuse components. Do not repeat long class lists, extract a component.
+- Import `bootstrap/dist/css/bootstrap.min.css` once in `src/index.tsx`. Do not use Bootstrap's own JavaScript; Modal and Toast come from `react-bootstrap`.
+- Prefer react-bootstrap components (`Button`, `Form`, `Card`, `Badge`, `Modal`, `Toast`, `ToggleButtonGroup`) over hand-written markup with the same classes.
+- Use Bootstrap utility classes for layout, spacing and typography. Spacing uses Bootstrap's 0–5 scale only.
+- Colors use Bootstrap's theme colors only (`primary`, `secondary`, `success`, `warning`, `danger`, `body-*`). Custom values go only into `--bs-*` variable overrides in `src/index.css`.
+- No inline `style` props, no other CSS or component libraries.
 
 Rules for every approach:
 
