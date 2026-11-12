@@ -25,6 +25,7 @@ This branch (`variant-tailwind`) uses **Tailwind CSS v4**.
 - No inline `style` props, no CSS modules, no other CSS or component libraries (no headless UI kits). Dialogs use the native `<dialog>` element.
 - Colors come from the semantic tokens defined in `@theme` (e.g. `bg-surface`, `text-muted`, `bg-status-reading`). Do not use raw palette classes (`bg-blue-500`) or arbitrary values (`p-[13px]`, `text-[#333]`) in components.
 - Spacing uses Tailwind's default spacing scale only (`p-4`, `gap-6`), no arbitrary values.
+- Shared design tokens live in `src/tokens.css` (identical on every branch, `--rl-*` variables). `@theme` in `src/index.css` maps them onto Tailwind; change a value in `tokens.css`, never in a component.
 - Reuse components. Do not repeat long class lists, extract a component (e.g. `Button` with variants).
 - Every focusable element shows a visible focus ring via `focus-visible:` utilities.
 

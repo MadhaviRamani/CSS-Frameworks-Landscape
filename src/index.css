@@ -1,38 +1,43 @@
 @import "tailwindcss";
+@import "./tokens.css";
 
 /*
- * Design tokens. Every color in the components comes from here.
- * Values point to Tailwind's default palette, so no new colors are invented.
- * Spacing uses Tailwind's default spacing scale.
+ * Maps the shared tokens from tokens.css (identical on every branch) onto
+ * Tailwind's theme. Components use the semantic utilities (`bg-surface`,
+ * `text-muted`, `p-4`), never a raw color.
  */
 @theme {
-  --color-page: var(--color-slate-50);
-  --color-surface: var(--color-white);
-  --color-line: var(--color-slate-300);
-  --color-fg: var(--color-slate-900);
-  --color-muted: var(--color-slate-600);
+  --color-page: var(--rl-color-page);
+  --color-surface: var(--rl-color-surface);
+  --color-line: var(--rl-color-line);
+  --color-fg: var(--rl-color-fg);
+  --color-muted: var(--rl-color-muted);
 
-  --color-primary: var(--color-indigo-600);
-  --color-primary-hover: var(--color-indigo-700);
-  --color-on-primary: var(--color-white);
+  --color-primary: var(--rl-color-primary);
+  --color-primary-hover: var(--rl-color-primary-hover);
+  --color-on-primary: var(--rl-color-on-primary);
 
-  --color-danger: var(--color-red-600);
-  --color-danger-hover: var(--color-red-700);
-  --color-on-danger: var(--color-white);
+  --color-danger: var(--rl-color-danger);
+  --color-danger-hover: var(--rl-color-danger-hover);
+  --color-on-danger: var(--rl-color-on-danger);
 
-  --color-focus: var(--color-indigo-500);
-  --color-star: var(--color-amber-600);
+  --color-focus: var(--rl-color-focus);
+  --color-star: var(--rl-color-star);
 
-  --color-status-want: var(--color-blue-100);
-  --color-on-status-want: var(--color-blue-800);
-  --color-status-reading: var(--color-amber-100);
-  --color-on-status-reading: var(--color-amber-900);
-  --color-status-done: var(--color-green-100);
-  --color-on-status-done: var(--color-green-800);
+  --color-status-want: var(--rl-color-status-want);
+  --color-on-status-want: var(--rl-color-on-status-want);
+  --color-status-reading: var(--rl-color-status-reading);
+  --color-on-status-reading: var(--rl-color-on-status-reading);
+  --color-status-done: var(--rl-color-status-done);
+  --color-on-status-done: var(--rl-color-on-status-done);
 
-  --color-toast: var(--color-slate-900);
-  --color-on-toast: var(--color-white);
-  --color-backdrop: color-mix(in oklab, var(--color-slate-900) 50%, transparent);
+  --color-toast: var(--rl-color-toast);
+  --color-on-toast: var(--rl-color-on-toast);
+  --color-backdrop: color-mix(in oklab, var(--rl-color-fg) 50%, transparent);
+
+  /* The whole spacing scale (p-1, gap-4, …) is a multiple of this unit. */
+  --spacing: var(--rl-space-unit);
+  --radius-md: var(--rl-radius);
 }
 
 @layer base {

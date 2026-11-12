@@ -1,0 +1,40 @@
+/*
+ * Shared design tokens for the Reading List.
+ * This file is identical on every styling branch (variant-tailwind,
+ * variant-bootstrap). Each approach maps these values into its own system
+ * in src/index.css. Change a value here, not in the components.
+ */
+:root {
+  /* Surfaces and text */
+  --rl-color-page: #f8fafc;
+  --rl-color-surface: #ffffff;
+  --rl-color-line: #cbd5e1;
+  --rl-color-fg: #0f172a;
+  --rl-color-muted: #475569;
+
+  /* Actions */
+  --rl-color-primary: #4f46e5;
+  --rl-color-primary-hover: #4338ca;
+  --rl-color-on-primary: #ffffff;
+  --rl-color-danger: #dc2626;
+  --rl-color-danger-hover: #b91c1c;
+  --rl-color-on-danger: #ffffff;
+  --rl-color-focus: #6366f1;
+  --rl-color-star: #d97706;
+
+  /* Status badges: background + text, AA contrast */
+  --rl-color-status-want: #dbeafe;
+  --rl-color-on-status-want: #1e40af;
+  --rl-color-status-reading: #fef3c7;
+  --rl-color-on-status-reading: #78350f;
+  --rl-color-status-done: #dcfce7;
+  --rl-color-on-status-done: #166534;
+
+  /* Toast */
+  --rl-color-toast: #0f172a;
+  --rl-color-on-toast: #ffffff;
+
+  /* Spacing and shape */
+  --rl-space-unit: 0.25rem; /* step 4 of the scale = 1rem */
+  --rl-radius: 0.375rem;
+}
