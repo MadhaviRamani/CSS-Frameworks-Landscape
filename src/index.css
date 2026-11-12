@@ -1,1 +1,46 @@
-/* Intentionally empty. Your styling approach goes here (or somewhere else, depending on the approach). */
+@import "tailwindcss";
+
+/*
+ * Design tokens. Every color in the components comes from here.
+ * Values point to Tailwind's default palette, so no new colors are invented.
+ * Spacing uses Tailwind's default spacing scale.
+ */
+@theme {
+  --color-page: var(--color-slate-50);
+  --color-surface: var(--color-white);
+  --color-line: var(--color-slate-300);
+  --color-fg: var(--color-slate-900);
+  --color-muted: var(--color-slate-600);
+
+  --color-primary: var(--color-indigo-600);
+  --color-primary-hover: var(--color-indigo-700);
+  --color-on-primary: var(--color-white);
+
+  --color-danger: var(--color-red-600);
+  --color-danger-hover: var(--color-red-700);
+  --color-on-danger: var(--color-white);
+
+  --color-focus: var(--color-indigo-500);
+  --color-star: var(--color-amber-600);
+
+  --color-status-want: var(--color-blue-100);
+  --color-on-status-want: var(--color-blue-800);
+  --color-status-reading: var(--color-amber-100);
+  --color-on-status-reading: var(--color-amber-900);
+  --color-status-done: var(--color-green-100);
+  --color-on-status-done: var(--color-green-800);
+
+  --color-toast: var(--color-slate-900);
+  --color-on-toast: var(--color-white);
+  --color-backdrop: color-mix(in oklab, var(--color-slate-900) 50%, transparent);
+}
+
+@layer base {
+  body {
+    @apply bg-page text-fg antialiased;
+  }
+
+  dialog::backdrop {
+    background-color: var(--color-backdrop);
+  }
+}

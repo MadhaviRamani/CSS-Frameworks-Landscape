@@ -19,13 +19,14 @@ A reading list built with React 19, TypeScript and Vite. No backend, the data is
 
 ## Styling
 
-<!-- TODO: Replace this section with the rules for the approach you chose. -->
+This branch (`variant-tailwind`) uses **Tailwind CSS v4**.
 
-Choose exactly one styling approach per branch and write it down here **before** you build. Example for Tailwind:
-
-- Use Tailwind CSS v4 only. No `tailwind.config.js`, configure with `@theme` in `src/index.css`.
-- No inline `style` props, no other CSS libraries.
-- Reuse components. Do not repeat long class lists, extract a component.
+- Use Tailwind CSS v4 only, via `@tailwindcss/vite`. No `tailwind.config.js`; configure with `@theme` in `src/index.css`.
+- No inline `style` props, no CSS modules, no other CSS or component libraries (no headless UI kits). Dialogs use the native `<dialog>` element.
+- Colors come from the semantic tokens defined in `@theme` (e.g. `bg-surface`, `text-muted`, `bg-status-reading`). Do not use raw palette classes (`bg-blue-500`) or arbitrary values (`p-[13px]`, `text-[#333]`) in components.
+- Spacing uses Tailwind's default spacing scale only (`p-4`, `gap-6`), no arbitrary values.
+- Reuse components. Do not repeat long class lists, extract a component (e.g. `Button` with variants).
+- Every focusable element shows a visible focus ring via `focus-visible:` utilities.
 
 Rules for every approach:
 
