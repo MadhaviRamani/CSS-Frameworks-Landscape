@@ -11,12 +11,14 @@ import { Header } from "./components/Header";
 import { Toolbar } from "./components/Toolbar";
 import type { Book, NewBook, StatusFilter } from "./types";
 import { useBooks } from "./useBooks";
+import { useColorMode } from "./useColorMode";
 
 type FormState = { show: boolean; book: Book | null; session: number };
 type DeleteState = { show: boolean; book: Book | null; deleted: boolean };
 
 export default function App() {
   const { books, addBook, updateBook, deleteBook } = useBooks();
+  const colorMode = useColorMode();
 
   const [status, setStatus] = useState<StatusFilter>("all");
   const [query, setQuery] = useState("");
@@ -75,7 +77,12 @@ export default function App() {
 
   return (
     <Container className="py-4">
-      <Header addButtonRef={addButtonRef} onAdd={() => openForm(null)} />
+      <Header
+        addButtonRef={addButtonRef}
+        onAdd={() => openForm(null)}
+        colorMode={colorMode.mode}
+        onToggleColorMode={colorMode.toggle}
+      />
 
       <main>
         <Toolbar

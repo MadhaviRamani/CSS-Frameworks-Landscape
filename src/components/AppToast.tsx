@@ -20,9 +20,10 @@ export function AppToast({ message, onClose }: AppToastProps) {
           onClose={onClose}
           autohide
           delay={3000}
-          bg="dark"
+          bg="body-tertiary"
+          className="shadow"
         >
-          <Toast.Body className="text-white">{message.text}</Toast.Body>
+          <Toast.Body>{message.text}</Toast.Body>
         </Toast>
       )}
     </ToastContainer>

@@ -12,6 +12,19 @@ test("shows the heading and all seed books", () => {
   expect(screen.getAllByRole("listitem")).toHaveLength(10);
 });
 
+test("the toggle switches between light and dark mode", async () => {
+  const user = userEvent.setup();
+  render(<App />);
+  const toggle = screen.getByRole("button", { name: "Dark mode" });
+
+  expect(document.documentElement).toHaveAttribute("data-bs-theme", "light");
+  await user.click(toggle);
+  expect(document.documentElement).toHaveAttribute("data-bs-theme", "dark");
+  expect(toggle).toHaveAttribute("aria-pressed", "true");
+  await user.click(toggle);
+  expect(document.documentElement).toHaveAttribute("data-bs-theme", "light");
+});
+
 test("filter and search work together and show the empty state", async () => {
   const user = userEvent.setup();
   render(<App />);

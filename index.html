@@ -4,6 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Reading List</title>
+    <script>
+      // Set the color mode before the first paint, so dark mode does not flash.
+      // Keep in sync with src/useColorMode.ts.
+      try {
+        var mode = localStorage.getItem("reading-list:color-mode");
+        if (mode !== "light" && mode !== "dark") {
+          mode = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-bs-theme", mode);
+      } catch (error) {}
+    </script>
   </head>
 
   <body>
