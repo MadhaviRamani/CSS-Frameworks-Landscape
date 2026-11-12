@@ -1,12 +1,11 @@
-import Badge from "react-bootstrap/Badge";
-
 import { STATUS_LABELS } from "../books";
 import type { Status } from "../types";
 
-const STATUS_BG: Record<Status, { bg: string; text?: "dark" }> = {
-  "want-to-read": { bg: "secondary" },
-  reading: { bg: "warning", text: "dark" },
-  done: { bg: "success" },
+/** Classes defined in src/index.css from the shared tokens. */
+const STATUS_CLASS: Record<Status, string> = {
+  "want-to-read": "status-want",
+  reading: "status-reading",
+  done: "status-done",
 };
 
 type StatusBadgeProps = {
@@ -14,10 +13,9 @@ type StatusBadgeProps = {
 };
 
 export function StatusBadge({ status }: StatusBadgeProps) {
-  const { bg, text } = STATUS_BG[status];
   return (
-    <Badge pill bg={bg} text={text}>
+    <span className={`badge rounded-pill ${STATUS_CLASS[status]}`}>
       {STATUS_LABELS[status]}
-    </Badge>
+    </span>
   );
 }

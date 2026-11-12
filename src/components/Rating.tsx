@@ -12,7 +12,7 @@ export function Rating({ rating }: RatingProps) {
   return (
     <span className="small">
       <span aria-hidden="true">
-        <span className="text-warning">{"★".repeat(rating)}</span>
+        <span className="rating-star">{"★".repeat(rating)}</span>
         <span className="text-body-tertiary">
           {"★".repeat(MAX_RATING - rating)}
         </span>

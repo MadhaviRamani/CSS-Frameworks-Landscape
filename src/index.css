@@ -1,5 +1,93 @@
+@import "./tokens.css";
+
 /*
- * Bootstrap is imported in src/index.tsx.
- * This is the one place for custom values: override Bootstrap's `--bs-*`
- * variables here instead of inventing colors or spacing in components.
+ * Bootstrap is imported in src/index.tsx (before this file).
+ * This is the one place for custom values: it maps the shared tokens from
+ * tokens.css onto Bootstrap's `--bs-*` variables.
+ *
+ * Not mappable without Sass: Bootstrap's spacing utilities (`p-3`, `gap-2`)
+ * and the focus color of form fields are compiled to fixed values.
  */
+
+/* Page colors: light mode only, dark mode keeps Bootstrap's dark theme. */
+:root:not([data-bs-theme="dark"]) {
+  --bs-body-bg: var(--rl-color-page);
+  --bs-body-color: var(--rl-color-fg);
+  --bs-secondary-color: var(--rl-color-muted);
+  --bs-border-color: var(--rl-color-line);
+  --bs-card-bg: var(--rl-color-surface);
+}
+
+:root {
+  --bs-border-radius: var(--rl-radius);
+  --bs-border-radius-pill: 50rem;
+}
+
+.btn {
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem
+    color-mix(in srgb, var(--rl-color-focus) 50%, transparent);
+}
+
+.btn-primary {
+  --bs-btn-color: var(--rl-color-on-primary);
+  --bs-btn-bg: var(--rl-color-primary);
+  --bs-btn-border-color: var(--rl-color-primary);
+  --bs-btn-hover-color: var(--rl-color-on-primary);
+  --bs-btn-hover-bg: var(--rl-color-primary-hover);
+  --bs-btn-hover-border-color: var(--rl-color-primary-hover);
+  --bs-btn-active-color: var(--rl-color-on-primary);
+  --bs-btn-active-bg: var(--rl-color-primary-hover);
+  --bs-btn-active-border-color: var(--rl-color-primary-hover);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--rl-color-primary);
+  --bs-btn-border-color: var(--rl-color-primary);
+  --bs-btn-hover-color: var(--rl-color-on-primary);
+  --bs-btn-hover-bg: var(--rl-color-primary);
+  --bs-btn-hover-border-color: var(--rl-color-primary);
+  --bs-btn-active-color: var(--rl-color-on-primary);
+  --bs-btn-active-bg: var(--rl-color-primary);
+  --bs-btn-active-border-color: var(--rl-color-primary);
+}
+
+.btn-danger {
+  --bs-btn-color: var(--rl-color-on-danger);
+  --bs-btn-bg: var(--rl-color-danger);
+  --bs-btn-border-color: var(--rl-color-danger);
+  --bs-btn-hover-color: var(--rl-color-on-danger);
+  --bs-btn-hover-bg: var(--rl-color-danger-hover);
+  --bs-btn-hover-border-color: var(--rl-color-danger-hover);
+  --bs-btn-active-color: var(--rl-color-on-danger);
+  --bs-btn-active-bg: var(--rl-color-danger-hover);
+  --bs-btn-active-border-color: var(--rl-color-danger-hover);
+}
+
+.btn-outline-danger {
+  --bs-btn-color: var(--rl-color-danger);
+  --bs-btn-border-color: var(--rl-color-danger);
+  --bs-btn-hover-color: var(--rl-color-on-danger);
+  --bs-btn-hover-bg: var(--rl-color-danger);
+  --bs-btn-hover-border-color: var(--rl-color-danger);
+  --bs-btn-active-color: var(--rl-color-on-danger);
+  --bs-btn-active-bg: var(--rl-color-danger-hover);
+  --bs-btn-active-border-color: var(--rl-color-danger-hover);
+}
+
+/* Status badges: Bootstrap has no theme color for these, so use the tokens. */
+.status-want {
+  background-color: var(--rl-color-status-want);
+  color: var(--rl-color-on-status-want);
+}
+.status-reading {
+  background-color: var(--rl-color-status-reading);
+  color: var(--rl-color-on-status-reading);
+}
+.status-done {
+  background-color: var(--rl-color-status-done);
+  color: var(--rl-color-on-status-done);
+}
+
+.rating-star {
+  color: var(--rl-color-star);
+}

@@ -25,6 +25,7 @@ This branch (`variant-bootstrap`) uses **Bootstrap 5.3** with **react-bootstrap*
 - Prefer react-bootstrap components (`Button`, `Form`, `Card`, `Badge`, `Modal`, `Toast`, `ToggleButtonGroup`) over hand-written markup with the same classes.
 - Use Bootstrap utility classes for layout, spacing and typography. Spacing uses Bootstrap's 0–5 scale only.
 - Colors use Bootstrap's theme colors only (`primary`, `secondary`, `success`, `warning`, `danger`, `body-*`). Custom values go only into `--bs-*` variable overrides in `src/index.css`.
+- Shared design tokens live in `src/tokens.css` (identical on every branch, `--rl-*` variables). `src/index.css` maps them onto Bootstrap; never write a raw color in a component or in `index.css`, always reference a `--rl-*` token.
 - No inline `style` props, no other CSS or component libraries.
 - Dark mode uses Bootstrap's `data-bs-theme` on `<html>` (set by `src/useColorMode.ts` and the inline script in `index.html`). Use theme-aware classes (`bg-body-tertiary`, `text-body-secondary`) instead of fixed `bg-dark`/`text-white`.
 
